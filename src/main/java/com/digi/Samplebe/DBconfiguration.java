@@ -2,8 +2,16 @@ package com.digi.Samplebe;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.digi.model.Authorities;
+import com.digi.model.BillingAddress;
+import com.digi.model.Cart;
+import com.digi.model.CartItem;
 import com.digi.model.Category;
+import com.digi.model.Customer;
+import com.digi.model.CustomerOrder;
 import com.digi.model.Product;
+import com.digi.model.ShippingAddress;
+import com.digi.model.User;
 
 import java.util.Properties;
 
@@ -43,7 +51,7 @@ public class DBconfiguration {
 		lsf.addProperties(hibernateProperties);
 		//An array of Class objects of all the entities
 		//Map all entities to relational table
-		Class classes[]=new Class[]{Product.class,Category.class};
+		Class classes[]=new Class[]{CartItem.class,Product.class,Category.class,Authorities.class,BillingAddress.class,Cart.class,Customer.class,ShippingAddress.class,User.class,CustomerOrder.class};
 		//localsessionfactorybuilder -> sessionfactory -> map all entities with relation table
 	    return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
